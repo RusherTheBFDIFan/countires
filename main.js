@@ -1,24 +1,44 @@
-nameofthecountries = [];
+var arrayofthecountries = [];
 function submit(){
-    var name1 = document.getElementById("nameofcountry1").value;
-    var name2 = document.getElementById("nameofcountry2").value;
-    var name3 = document.getElementById("nameofcountry3").value;
-    var name4 = document.getElementById("nameofcountry4").value;
+    var displayscountryarray = [];
+    for (var j=1;j<=4;j++){
+        var nameofthecountries = document.getElementById("nameofcountry"+j).value;
+        console.log(nameofthecountries);
 
-    nameofthecountries.push(name1);
-    nameofthecountries.push(name2);
-    nameofthecountries.push(name3);
-    nameofthecountries.push(name4);
-    
-    console.log(nameofthecountries);
+        arrayofthecountries.push(nameofthecountries);
+    }
+    console.log(arrayofthecountries);
 
-    document.getElementById("displayname").innerHTML=nameofthecountries;
+    var lengthofcountryarray = arrayofthecountries.length;
+    console.log(lengthofcountryarray);
+
+    for (var k=0;k<lengthofcountryarray;k++){
+        displayscountryarray.push("<h4> NAME - "+arrayofthecountries[k]+ "</h4>");
+        console.log(displayscountryarray);
+    }
+    console.log(displayscountryarray);
+    document.getElementById("displaynamewithcommas").innerHTML=displayscountryarray;
+    var removecommas = displayscountryarray.join(" ");
+    console.log(removecommas);
+    document.getElementById("displaynamewithoutcommas").innerHTML=removecommas;
+
     document.getElementById("submitbutton").style.display="none";
-
     document.getElementById("sortbutton").style.display="inline-block";
 }
 function sorting(){
-    nameofthecountries.sort();
-    console.log(nameofthecountries);
-    document.getElementById("displayname").innerHTML=nameofthecountries;
+    arrayofthecountries.sort();
+    console.log(arrayofthecountries);
+
+    var displaycountryarraysorting = [];
+
+    var lengthofcountryarray = arrayofthecountries.length;
+    console.log(lengthofcountryarray);
+
+    for (var k=0;k<lengthofcountryarray;k++){
+        displayscountryarraysorting.push("<h4> NAME - "+arrayofthecountries[k]+ "</h4>");
+        console.log(displayscountryarraysorting);
+    }
+    var removecommas = displayscountryarraysorting.join(" ");
+    console.log(removecommas);
+    document.getElementById("displaynamewithoutcommas").innerHTML=removecommas; 
 }
